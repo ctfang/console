@@ -7,6 +7,6 @@ namespace Console;
 class Start
 {
     static public function run(){
-
+        echo 'ok';
     }
 }
