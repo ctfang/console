@@ -15,8 +15,6 @@
         "psr-4": {
             "Console\\": "src/"
         },
-        "files": [
-            "src/config.php"
-        ]
+        "files": []
     }
 }
