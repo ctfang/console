@@ -1,7 +1,9 @@
 <?php
 namespace Console\Database\Migrations;
 
-class [class_name] extends \MigrationModel
+use Console\System\MigrationModel;
+
+class [class_name] extends MigrationModel
 {
     /**
      * 创建数据表

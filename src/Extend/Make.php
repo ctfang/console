@@ -4,6 +4,7 @@ namespace Console\Extend;
 use Console\System;
 
 use Console\config;
+
 /**
  * Created by PhpStorm.
  * User: selden1992
@@ -69,5 +70,8 @@ class Make
             return "\033[0;41;1m table_name is has";
         }
 
+    }
+    static public function seeder(){
+        $obj = new Console\Database\Migrations\Test();
     }
 }

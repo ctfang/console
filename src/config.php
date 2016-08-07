@@ -25,7 +25,7 @@ class config
         if ( !isset(self::$config) && config::config_path() ){
             if( !is_file(config::config_path()) ){
                 mkdir(dirname(config::config_path()), 0755, true);
-                file_put_contents(config::config_path(),'<?php retuern [];');
+                file_put_contents(config::config_path(),'<?php return [];');
             }
             self::$config = include config::config_path();
         }

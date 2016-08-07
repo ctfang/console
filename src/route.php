@@ -32,3 +32,7 @@ Route::register('make:view',function(){
 Route::register('make:migration',function(){
     return Make::migration();
 });
+
+Route::register('make:seeder',function(){
+    return Make::seeder();
+});
