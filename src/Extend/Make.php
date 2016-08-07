@@ -54,6 +54,20 @@ class Make
     static public function migration(){
         $param      = config::param();
         $table_name = $param[0];
-        
+
+        $database_dir = config::database().'/migrations/';
+        if(!is_dir( $database_dir ))  mkdir($database_dir,0755,true);
+        if( empty($table_name) ) return "\033[0;41;1m table_name is null";
+
+        $filename = $database_dir.$table_name.'.php';
+        if( !is_file($filename ) ){
+            $str = file_get_contents( dirname(__FILE__).'/migrate/create_table.php');
+            $str = str_replace("[class_name]", $table_name, $str);
+            file_put_contents($filename, $str);
+            echo 'create '.$filename;
+        }else{
+            return "\033[0;41;1m table_name is has";
+        }
+
     }
 }

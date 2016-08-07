@@ -1,5 +1,6 @@
 <?php
-namespace database\migrations;
+namespace Console\Database\Migrations;
+
 class [class_name] extends \MigrationModel
 {
     /**

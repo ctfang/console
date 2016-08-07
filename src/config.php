@@ -8,6 +8,8 @@ class config
 {
     static public $app_path ='./Application/';
 
+    static public $config_path ='./Application/Common/Conf/config.php';
+
     static protected $config ;
 
     static public function __callStatic($funcname, $arguments){
@@ -20,8 +22,8 @@ class config
     }
 
     static public function set($name='',$value=''){
-        if ( !isset(self::$config) && config::app_path() ){
-            self::$config = include config::app_path().'Common/Conf/config.php';
+        if ( !isset(self::$config) && config::config_path() ){
+            self::$config = include config::config_path();
         }
         if( isset(self::$$name) && $value!='' ){
             self::$$name  = $value;

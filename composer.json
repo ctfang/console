@@ -13,7 +13,8 @@
         },
     "autoload": {
         "psr-4": {
-            "Console\\": "src/"
+            "Console\\": "src/",
+            "Console\\Database\Migrations\\": "./database/"
         },
         "files": []
     }
