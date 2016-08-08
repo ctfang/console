@@ -10,6 +10,8 @@ class config
 
     static public $config_path ='./Application/Common/Conf/config.php';
 
+    static public $database ='./database';
+
     static protected $config ;
 
     static public function __callStatic($funcname, $arguments){
