@@ -32,7 +32,11 @@ Route::register('make:view',function(){
 Route::register('make:migration',function(){
     return Make::migration();
 });
-
+// 创建数据
 Route::register('make:seeder',function(){
     return Make::seeder();
+});
+// 提交 git
+Route::register('git:push',function(){
+    return Git::push_all();
 });
