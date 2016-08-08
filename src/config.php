@@ -37,4 +37,9 @@ class config
             self::$config[$name] = $value;
         }
     }
+
+    static public function all(){
+        self::set();
+        return self::$config;
+    }
 }

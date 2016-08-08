@@ -14,6 +14,15 @@ use Console\config;
 class Migrate
 {
     static public function migrate(){
-
+        $dir = config::database().'/migrations/';
+        $file=scandir($dir);
+        unset($file[0]);unset($file[1]);
+        foreach ($file as $name) {
+            $name      = pathinfo($name)['filename'];
+            $namespace = 'Console\\Database\\Migrations\\'.$name;
+            $obj       = new $namespace();
+            $obj->up();
+            echo "\ncreate $name successfully";
+        }
     }
 }

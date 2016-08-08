@@ -8,14 +8,20 @@ namespace Console\System;
  */
 class Migration
 {
-
-    static public function create($route_name,$remark,$field_sql){
-        $sql = "CREATE TABLE IF NOT EXISTS `{$route_name}` ({$field_sql}) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='{$remark}';";
-        echo $sql;
+    /**
+     * @param $sql
+     * @return bool
+     */
+    static public function create($sql){
+        return Db::create($sql);
     }
 
-    // 绑定注册
-    static public function down($route_name) {
-
+    /**
+     * @param $table_name
+     * @return bool
+     */
+    static public function drop($table_name) {
+        $sql = "DROP TABLE IF EXISTS `".$table_name."`";
+        return Db::query($sql);
     }
 }
