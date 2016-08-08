@@ -11,17 +11,16 @@ use Console\config;
 class Git
 {
     static public function push_all(){
-        chdir("vendor/selden1992/console");
+        $parameter  = config::param();
+        $git_dir    = $parameter[0];
+        if (!empty($git_dir)){
+            chdir("vendor/{$git_dir}");
+        }
         self::add();
         self::push();
     }
     static public function add(){
-        $parameter = config::param();
-        if( empty($parameter) ){
-            $add_str = 'git add .';
-        }else{
-            $add_str = 'git add '.reset($parameter);
-        }
+        $add_str = 'git add .';
         system($add_str);
     }
     static public function push(){
