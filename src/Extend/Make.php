@@ -66,7 +66,7 @@ class Make
 
         $filename = $database_dir.$table_name.'.php';
         if( !is_file($filename ) ){
-            $str = file_get_contents( dirname(__FILE__).'/migrate/create_table.php');
+            $str = file_get_contents( dirname(__FILE__).'/migrate/create_seeder.php');
             $str = str_replace("[class_name]", $table_name, $str);
             file_put_contents($filename, $str);
             echo 'create '.$filename;
