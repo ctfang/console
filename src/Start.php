@@ -7,7 +7,8 @@ namespace Console;
 class Start
 {
     static public function run($argv){
-        $console    = $argv[1];
+        error_reporting(E_ALL ^ E_NOTICE);
+        $console    = $argv[1]?$argv[1]:'';
 
         unset($argv[0]);
         unset($argv[1]);

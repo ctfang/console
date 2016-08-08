@@ -25,7 +25,7 @@ class Db
         $con    = self::getConnection();
         $status = $con->query( $sql );
         if( $status ){
-            return true;
+            return $status;
         }else{
             echo "\n error \n$sql\n";
         }

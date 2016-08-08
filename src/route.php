@@ -4,6 +4,11 @@ namespace Console\Extend;
 use Console\System\Route;
 
 // 命令帮助列表
+Route::register('',function(){
+    return Help::route();
+});
+
+// 命令帮助列表
 Route::register('route:list',function(){
     return Help::route();
 });
@@ -52,7 +57,11 @@ Route::register('migrate:rollback',function(){
 Route::register('migrate:reset',function(){
     return Migrate::reset();
 });
-// 单个命令还原或运行迁移：
+// 回滚所有迁移并且再执行一次：
 Route::register('migrate:refresh',function(){
     return Migrate::refresh();
+});
+// 回滚所有迁移并且再执行一次：
+Route::register('db:seed',function(){
+    return Db::seed();
 });

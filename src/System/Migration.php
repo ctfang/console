@@ -9,6 +9,7 @@ namespace Console\System;
 class Migration
 {
     /**
+     * 创建
      * @param $sql
      * @return bool
      */
@@ -17,6 +18,7 @@ class Migration
     }
 
     /**
+     * 删除
      * @param $table_name
      * @return bool
      */

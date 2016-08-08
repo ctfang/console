@@ -13,6 +13,10 @@ use Console\config;
  */
 class Make
 {
+    /**
+     * 创建控制器
+     * @return string
+     */
     static public function controller(){
         $param = config::param();
         $arr = explode("/",$param[0] );
@@ -72,6 +76,31 @@ class Make
 
     }
     static public function seeder(){
-        $obj = new Console\Database\Migrations\Test();
+        $param      = config::param();
+        $table_name = $param[0];
+        $new_file   = config::database().'/seeds/'.$table_name.'.php';
+        if( empty($table_name) ) return "\033[0;41;1m table_name isnull";
+        if( is_file( $new_file ) )  return "\033[0;41;1m$table_name is has";
+        $filename   = config::database().'/migrations/'.$table_name.'.php';
+        if( !is_file( $filename ) )  return "\033[0;41;1mnot find this $table_name migrate";
+
+        $sql        = "DESC $table_name";
+        $rs         = System\Db::query( $sql );
+        $str_sql    = '';
+        while($row = $rs->fetch()){
+            $value = $row['Default'];
+            if( empty($row['Default']) ){
+                $value = $row['Field'];
+            }
+            if( !empty($str_sql) ){
+                $str_sql = $str_sql.',';
+            }
+            $str_sql  = $str_sql."'$value'";
+        }
+        $newstr =  'INSERT INTO `'.$table_name.'` VALUES ('.$str_sql.');';
+
+        if( !is_dir(dirname($new_file)) )  mkdir(dirname($new_file),0755,true);
+        file_put_contents($new_file, $newstr);
+        echo "\ncreate $table_name successfully";
     }
 }

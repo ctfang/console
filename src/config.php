@@ -19,7 +19,7 @@ class config
             return self::$$funcname;
         }
         self::set();
-
+        
         return self::$config[$funcname];
     }
 
