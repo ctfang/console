@@ -29,16 +29,4 @@ sql;
     {
         $this->delete_table( "[class_name]" );
     }
-    /**
-     * 发送填充数据
-     * [arr_insert 标识刷新填充键值
-     * @return [type] [description]
-     */
-    public function seed()
-    {
-        // INSERT INTO `[class_name]` VALUES ([arr_insert]);
-        $sql = <<<sql
-sql;
-        $this->insert( $sql );
-    }
 }

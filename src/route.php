@@ -28,15 +28,31 @@ Route::register('make:view',function(){
     return Make::view();
 });
 
-// 创建数据表迁移文件
+// 创建一个迁移库文件
 Route::register('make:migration',function(){
     return Make::migration();
 });
-// 创建数据
+// 创建数据插入文件
 Route::register('make:seeder',function(){
     return Make::seeder();
 });
 // 提交 git
 Route::register('git:push',function(){
     return Git::push_all();
+});
+// 运行迁移
+Route::register('migrate',function(){
+    return Migrate::migrate();
+});
+// 还原迁移
+Route::register('migrate:rollback',function(){
+    return Migrate::rollback();
+});
+// 还原应用程序中的所有迁移：
+Route::register('migrate:reset',function(){
+    return Migrate::reset();
+});
+// 单个命令还原或运行迁移：
+Route::register('migrate:refresh',function(){
+    return Migrate::refresh();
 });
