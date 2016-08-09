@@ -3,6 +3,7 @@
 # 入口文件
 
 !/usr/bin/php
+
 <?php
 
 // cli 模式运行
