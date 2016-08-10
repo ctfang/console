@@ -19,7 +19,7 @@ class Make
      */
     static public function controller(){
         $param = config::param();
-        $arr = explode("/",$param[0] );
+        $arr = explode("\\",$param[0] );
         if( empty($arr[0]) || empty($arr[1]) ){
             return "\033[0;41;1m module name is null;Enter module/controller";
         }
@@ -28,7 +28,7 @@ class Make
     }
     static public function model(){
         $param = config::param();
-        $arr = explode("/",$param[0] );
+        $arr = explode("\\",$param[0] );
         if( empty($arr[0]) || empty($arr[1]) ){
             return "\033[0;41;1m module name is null;Enter module/controller";
         }
@@ -37,7 +37,7 @@ class Make
     }
     static public function view(){
         $param = config::param();
-        $arr = explode("/",$param[0] );
+        $arr = explode("\\",$param[0] );
         if( empty($arr[0]) || empty($arr[1]) || empty($arr[2]) ){
             return "\033[0;41;1m module name is null;Enter module/view_dir/html_name";
         }
