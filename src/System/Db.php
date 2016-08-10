@@ -41,6 +41,7 @@ class Db
             'password'=>$config['DB_PWD']
         );
         self::$connect = new \PDO($config['dsn'], $config['username'], $config['password']);
+        self::$connect->query("SET NAMES utf8");
         return self::$connect;
     }
 }
