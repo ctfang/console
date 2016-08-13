@@ -7,7 +7,7 @@ class Route
     static public $binds;
 
     public function __construct(){
-        require_once dirname(__DIR__).'\route.php';
+        require_once dirname(__DIR__).'/route.php';
     }
 
     // 绑定注册
@@ -18,7 +18,7 @@ class Route
     // 创建
     static public function make($abstract, $parameters = []) {
         if( !isset(self::$binds[$abstract]) ){
-            die("\033[0;33;1mnot find this route");
+            die("\033[0;33;1mnot find this route\n");
         }
         $parameters = (array)$parameters;
         return call_user_func_array(self::$binds[$abstract], $parameters);

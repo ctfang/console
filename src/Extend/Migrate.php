@@ -22,11 +22,12 @@ class Migrate
         unset($file[0]);unset($file[1]);
         foreach ($file as $name) {
             $name      = pathinfo($name)['filename'];
-            $namespace = 'Console\\Database\\Migrations\\'.$name;
+            $namespace = 'Console\\Database\\migrations\\'.$name;
             $obj       = new $namespace();
             $obj->up();
             echo "\ncreate $name successfully";
         }
+        echo "\n";
     }
 
     /**
@@ -51,7 +52,7 @@ class Migrate
         unset($file[0]);unset($file[1]);
         foreach ($file as $name) {
             $name      = pathinfo($name)['filename'];
-            $namespace = 'Console\\Database\\Migrations\\'.$name;
+            $namespace = 'Console\\Database\\migrations\\'.$name;
             $obj       = new $namespace();
             $obj->down();
             echo "\ndelete $name successfully";

@@ -40,7 +40,12 @@ class Db
             'username'=>$config['DB_USER'],
             'password'=>$config['DB_PWD']
         );
-        self::$connect = new \PDO($config['dsn'], $config['username'], $config['password']);
+        try{
+            self::$connect = new \PDO($config['dsn'], $config['username'], $config['password']);
+        }catch (PDOException $e) {
+            print "错误: ".$e->getMessage()."<br />"; print "行号: ".$e->getLine()."<br />"; die();
+        }
+
         self::$connect->query("SET NAMES utf8");
         return self::$connect;
     }
