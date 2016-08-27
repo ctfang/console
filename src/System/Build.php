@@ -125,4 +125,19 @@ class [MODEL]Model extends Model {
             }
         }
     }
+    static public function buildResource($module,$controller='Index'){
+        $file   =   config::app_path().'/'.$module.'/Controller/'.$controller.'Controller'.'.class.php';
+        if(!is_file($file)){
+            $content = file_get_contents( __DIR__.'/Build/Resource.tpl' );
+            $content = str_replace(array('[MODULE]','[CONTROLLER]'),array($module,$controller),$content);
+            if( false ){
+                $content    =   preg_replace('/namespace\s(.*?);/','',$content,1);
+            }
+            $dir = dirname($file);
+            if(!is_dir($dir)){
+                mkdir($dir, 0755, true);
+            }
+            file_put_contents($file,$content);
+        }
+    }
 }

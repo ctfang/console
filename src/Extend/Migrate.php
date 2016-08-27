@@ -37,8 +37,7 @@ class Migrate
         self::reset();
         self::migrate();
         $param      = config::param();
-        $param      = $param[0];
-        if ( $param=='--seed' ){
+        if ( $param[0]=='--seed' ){
             Db::seed();
         }
     }

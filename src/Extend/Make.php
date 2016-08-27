@@ -23,8 +23,13 @@ class Make
         if( empty($arr[0]) || empty($arr[1]) ){
             return "\033[0;41;1m module name is null;Enter module/controller\n";
         }
-        $buil = new System\Build;
-        $buil::buildController( $arr['0'],$arr[1] );
+        if( empty($param[1]) ){
+            // 普通控制器
+            System\Build::buildController( $arr['0'],$arr[1] );
+        }elseif( $param[1]=='--resource' ){
+            // 资源控制器
+            System\Build::buildResource( $arr['0'],$arr[1] );
+        }
     }
     static public function model(){
         $param = config::param();
