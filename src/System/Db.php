@@ -34,7 +34,7 @@ class Db
         if ( isset(self::$connect) ){
             return self::$connect;
         }
-        $config = config::all();
+        $config = config::db();
         $config = array(
             'dsn'=>"mysql:host={$config['DB_HOST']};port={$config['DB_PORT']};dbname={$config['DB_NAME']}",
             'username'=>$config['DB_USER'],

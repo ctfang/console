@@ -6,40 +6,54 @@ namespace Console;
  */
 class config
 {
-    static public $app_path ='./Application/';
-
-    static public $config_path ='./Application/Common/Conf/config.php';
-
-    static public $database ='./database';
 
     static protected $config ;
 
     static public function __callStatic($funcname, $arguments){
-        if(isset(self::$$funcname)){
-            return self::$$funcname;
-        }
-        self::set();
-        
         return self::$config[$funcname];
     }
 
-    static public function set($name='',$value=''){
-        if ( !isset(self::$config) && config::config_path() && !isset(self::$$name) ){
-            if( !is_file(config::config_path()) ){
-                mkdir(dirname(config::config_path()), 0755, true);
-                file_put_contents(config::config_path(),'<?php return [];');
+    static public function db(){
+        $filePath = self::db_path();
+        if( !file_exists($filePath) ){
+            if( !is_dir(dirname($filePath)) ){
+                mkdir(dirname($filePath), 0755, true);
             }
-            self::$config = include config::config_path();
+            $elatePath = __DIR__.'/System/Default/db.tpl';
+            file_put_contents($filePath,file_get_contents($elatePath));
         }
-        if( isset(self::$$name) && $value!='' ){
-            self::$$name  = $value;
-        }elseif ($value!=''){
-            self::$config[$name] = $value;
-        }
+        /** @noinspection PhpIncludeInspection */
+        return  require_once $filePath;
+    }
+
+    static public function set($name='',$value=''){
+        self::$config[$name] = $value;
+    }
+
+    static public function get($name){
+        return self::$config[$name];
     }
 
     static public function all(){
-        self::set();
         return self::$config;
+    }
+
+    /**
+     * @param $filePath
+     */
+    static public function setAll($filePath){
+        if( !file_exists($filePath) ){
+            if( !is_dir(dirname($filePath)) ){
+                mkdir(dirname($filePath), 0755, true);
+            }
+            $elatePath  = __DIR__.'/System/Default/console.tpl';
+            $string     = file_get_contents($elatePath);
+            $path       = __DIR__.'/System/Default';
+            $path       = './vendor/'.end(explode('vendor'.DIRECTORY_SEPARATOR,$path));
+            $string     = str_replace('[System/Default]',$path,$string);
+            file_put_contents($filePath,$string);
+        }
+        /** @noinspection PhpIncludeInspection */
+        self::$config = require $filePath;
     }
 }
