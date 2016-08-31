@@ -22,25 +22,16 @@ php artisan route:list 就可以看到所有命令支持
 
 # 入口文件放到根目录
 
-!/usr/bin/php
-
+#!/usr/bin/php
 <?php
-
 // cli 模式运行
-
 require './vendor/autoload.php';
-
 // 配置读取有数据库信息的配置文件
-
-Console\config::set('config_path','./Application/Common/Conf/config.php');
-
+Console\config::set('config_path','./config/db.php');
 // 配置tp代码根目录
-
-
 Console\config::set('app_path','./Application/');
-
 // 开始执行
-
 $statuc = Console\Start::run( $argv );
 
 echo $statuc;
+echo "\033[0m";
