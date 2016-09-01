@@ -2,12 +2,6 @@
 return [
     'title'=>'数据迁移命令',
 
-    'rollback'=>[
-        'title'=>'返回上一次迁移',
-        'parameter'=>'file name',
-        'details'=>[],
-    ],
-
     'reset'=>[
         'title'=>'还原数据库',
         'parameter'=>'nothing',

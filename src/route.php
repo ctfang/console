@@ -49,10 +49,6 @@ Route::register('git:push',function(){
 Route::register('migrate',function(){
     return Migrate::migrate();
 });
-// 还原迁移
-Route::register('migrate:rollback',function(){
-    return Migrate::rollback();
-});
 // 还原应用程序中的所有迁移：
 Route::register('migrate:reset',function(){
     return Migrate::reset();
