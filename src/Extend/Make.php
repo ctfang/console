@@ -38,8 +38,14 @@ class Make
         if( empty($arr[0]) || empty($arr[1]) ){
             return "\033[0;41;1m module name is null;Enter module/controller\n";
         }
+        if( empty($param[1]) ){
+            // 普通
+            Build::buildModel( $arr['0'],$arr[1] );
+        }elseif( $param[1]=='--resource' ){
+            // 资源
+            Build::buildModel( $arr['0'],$arr[1],config::get('model_resource_path') );
+        }
 
-        Build::buildModel( $arr['0'],$arr[1] );
     }
     static public function view(){
         $param = config::param();
@@ -59,6 +65,7 @@ class Make
             $module = trim(fgets(STDIN));
             if( empty($module) ) return "\033[0;41;1m module name is null\n";
         }
+
         Build::buildAppDir( $module );
     }
     static public function migration(){
@@ -116,10 +123,10 @@ class Make
             return "\033[0;41;1m module name is null;Enter module/input\n";
         }
         if( empty($param[1]) ){
-            // 普通控制器
+            // 普通
             Build::buildInput( $arr['0'],$arr[1] );
         }elseif( $param[1]=='--resource' ){
-            // 资源控制器
+            // 资源
             Build::buildInput( $arr['0'],$arr[1],config::get('input_resource_path') );
         }
     }
@@ -135,7 +142,6 @@ class Make
             return "\033[0;41;1m module name is null;Enter module/behaviors\n";
         }
         if( empty($param[1]) ){
-            // 普通控制器
             Build::buildBehaviors( $arr['0'],$arr[1] );
         }
     }

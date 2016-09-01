@@ -64,10 +64,11 @@ class Build {
     }
 
     // 创建模型类
-    static public function buildModel($module,$model) {
+    static public function buildModel($module,$model,$tempPath=false) {
+        if( $tempPath==false ) $tempPath = config::get('model_path');
         $file   =   config::app_path().'/'.$module.'/Model/'.$model.'Model'.'.class.php';
         if(!is_file($file)){
-            $content = file_get_contents(config::get('model_path'));
+            $content = file_get_contents( $tempPath );
             $content = str_replace(array('[MODULE]','[MODEL]'),array($module,$model),$content);
             if( false ){
                 $content    =   preg_replace('/namespace\s(.*?);/','',$content,1);
