@@ -15,6 +15,8 @@ return [
     'resource_path'=>'[System/Default]/resource.tpl',
     /* 模型模板路径 */
     'model_path'=>'[System/Default]/model.tpl',
+    /* 模型模板路径 */
+    'model_resource_path'=>'./vendor/selden1992\console\src/System/Default/modelresource.tpl',
     /* 视图模板路径 */
     'view_path'=>'[System/Default]/view.tpl',
     /* 数据迁移目录 database */
