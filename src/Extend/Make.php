@@ -1,9 +1,9 @@
 <?php
 namespace Console\Extend;
 
-use Console\System;
-
 use Console\config;
+use Console\System;
+use Console\System\Build;
 
 /**
  * Created by PhpStorm.
@@ -19,30 +19,31 @@ class Make
      */
     static public function controller(){
         $param = config::param();
-        $arr = explode(DIRECTORY_SEPARATOR,$param[0] );
+        $arr = System\Directory::explode($param['0']);
+
         if( empty($arr[0]) || empty($arr[1]) ){
             return "\033[0;41;1m module name is null;Enter module/controller\n";
         }
         if( empty($param[1]) ){
             // 普通控制器
-            System\Build::buildController( $arr['0'],$arr[1] );
+            Build::buildController( $arr['0'],$arr[1] );
         }elseif( $param[1]=='--resource' ){
             // 资源控制器
-            System\Build::buildResource( $arr['0'],$arr[1] );
+            Build::buildResource( $arr['0'],$arr[1] );
         }
     }
     static public function model(){
-        $param = config::param();
-        $arr = explode(DIRECTORY_SEPARATOR,$param[0] );
+        $param  = config::param();
+        $arr    = System\Directory::explode($param['0']);
         if( empty($arr[0]) || empty($arr[1]) ){
             return "\033[0;41;1m module name is null;Enter module/controller\n";
         }
-        $buil = new System\Build;
-        $buil::buildModel( $arr['0'],$arr[1] );
+
+        Build::buildModel( $arr['0'],$arr[1] );
     }
     static public function view(){
         $param = config::param();
-        $arr = explode(DIRECTORY_SEPARATOR,$param[0] );
+        $arr = System\Directory::explode($param['0']);
         if( empty($arr[0]) || empty($arr[1]) || empty($arr[2]) ){
             return "\033[0;41;1m module name is null;Enter module/view_dir/html_name]\n";
         }
@@ -58,8 +59,7 @@ class Make
             $module = trim(fgets(STDIN));
             if( empty($module) ) return "\033[0;41;1m module name is null\n";
         }
-        $buil = new System\Build;
-        $buil::buildAppDir( $module );
+        Build::buildAppDir( $module );
     }
     static public function migration(){
         $param      = config::param();
@@ -102,10 +102,25 @@ class Make
             }
             $str_sql  = $str_sql."'$value'";
         }
-        $newstr =  'INSERT INTO `'.$table_name.'` VALUES ('.$str_sql.');';
+        $nest =  'INSERT INTO `'.$table_name.'` VALUES ('.$str_sql.');';
 
         if( !is_dir(dirname($new_file)) )  mkdir(dirname($new_file),0755,true);
-        file_put_contents($new_file, $newstr);
+        file_put_contents($new_file, $nest);
         echo "\ncreate $table_name successfully\n";
+    }
+    static public function input(){
+        $param = config::param();
+        $arr = System\Directory::explode($param['0']);
+
+        if( empty($arr[0]) || empty($arr[1]) ){
+            return "\033[0;41;1m module name is null;Enter module/input\n";
+        }
+        if( empty($param[1]) ){
+            // 普通控制器
+            Build::buildInput( $arr['0'],$arr[1] );
+        }elseif( $param[1]=='--resource' ){
+            // 资源控制器
+            Build::buildInputResource( $arr['0'],$arr[1] );
+        }
     }
 }

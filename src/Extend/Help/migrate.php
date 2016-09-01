@@ -19,7 +19,9 @@ return [
     'refresh'=>[
         'title'=>'还原数据库并且重新迁移',
         'parameter'=>'nothing',
-8
+        'details'=>[
+
+        ],
     ],
 
 ];

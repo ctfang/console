@@ -25,7 +25,7 @@ class [CONTROLLER]Controller extends Controller {
         $error  = '';
         $data   = D('[CONTROLLER]')->store(input(),$error);
         if( $data===false ){
-        $this->( 创建失败:'.$error );
+            $this->error( '创建失败:'.$error );
         }
         $this->success( '创建成功' );
     }
@@ -57,7 +57,7 @@ class [CONTROLLER]Controller extends Controller {
         $error  = '';
         $data   = D('[CONTROLLER]')->update(input(),$error);
         if( $data===false ){
-        $this->( 更新失败:'.$error );
+            $this->error( '更新失败:'.$error );
         }
         $this->success( '更新成功' );
     }
@@ -70,7 +70,7 @@ class [CONTROLLER]Controller extends Controller {
         $error  = '';
         $data   = D('[CONTROLLER]')->details($id,$error);
         if( $data===false ){
-            $this->( '删除失败'.$error );
+            $this->error( '删除失败'.$error );
         }
         $this->success( '删除成功' );
     }
