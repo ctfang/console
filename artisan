@@ -1,0 +1,11 @@
+#!/usr/bin/php
+<?php
+// cli 模式运行
+require './vendor/autoload.php';
+// 读取配置文件
+Console\config::setAll( './config/console.php' );
+// 开始执行
+$back = Console\Start::run( $argv );
+
+echo $back;
+echo "\033[0m";
