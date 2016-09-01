@@ -41,6 +41,14 @@ Route::register('make:migration',function(){
 Route::register('make:seeder',function(){
     return Make::seeder();
 });
+// 创建input文件
+Route::register('make:input',function(){
+    return Make::input();
+});
+// 创建行为文件
+Route::register('make:behaviors',function(){
+    return Make::behaviors();
+});
 // 提交 git
 Route::register('git:push',function(){
     return Git::push_all();

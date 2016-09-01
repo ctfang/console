@@ -95,4 +95,36 @@ class Build {
             file_put_contents($file,$content);
         }
     }
+    static public function buildInput($module,$controller='Index',$tempPath=false){
+        if( $tempPath==false ) $tempPath = config::get('input_path');
+        $file   =   config::app_path().'/'.$module.'/Input/'.$controller.'Input'.'.class.php';
+        if(!is_file($file)){
+            $content = file_get_contents($tempPath);
+            $content = str_replace(array('[MODULE]','[CONTROLLER]'),array($module,$controller),$content);
+            if( false ){
+                $content    =   preg_replace('/namespace\s(.*?);/','',$content,1);
+            }
+            $dir = dirname($file);
+            if(!is_dir($dir)){
+                mkdir($dir, 0755, true);
+            }
+            file_put_contents($file,$content);
+        }
+    }
+    static public function buildBehaviors($module,$controller){
+        $tempPath = config::get('behaviors_path');
+        $file   =   config::app_path().'/'.$module.'/Behaviors/'.$controller.'Behaviors'.'.class.php';
+        if(!is_file($file)){
+            $content = file_get_contents($tempPath);
+            $content = str_replace(array('[MODULE]','[CONTROLLER]'),array($module,$controller),$content);
+            if( false ){
+                $content    =   preg_replace('/namespace\s(.*?);/','',$content,1);
+            }
+            $dir = dirname($file);
+            if(!is_dir($dir)){
+                mkdir($dir, 0755, true);
+            }
+            file_put_contents($file,$content);
+        }
+    }
 }

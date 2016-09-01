@@ -19,4 +19,10 @@ return [
     'view_path'=>'[System/Default]/view.tpl',
     /* 数据迁移目录 database */
     'database'=>'./database',
+    /* input路径 */
+    'input_path'=>'[System/Default]/input.tpl',
+    /* input 资源路径 */
+    'input_resource_path'=>'[System/Default]/inputresource.tpl',
+    /* 行为模板路径 */
+    'behaviors_path'=>'[System/Default]/behaviors.tpl',
 ];

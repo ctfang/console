@@ -120,7 +120,23 @@ class Make
             Build::buildInput( $arr['0'],$arr[1] );
         }elseif( $param[1]=='--resource' ){
             // 资源控制器
-            Build::buildInputResource( $arr['0'],$arr[1] );
+            Build::buildInput( $arr['0'],$arr[1],config::get('input_resource_path') );
+        }
+    }
+
+    /**
+     * 创建行为
+     */
+    static public function behaviors(){
+        $param = config::param();
+        $arr = System\Directory::explode($param['0']);
+
+        if( empty($arr[0]) || empty($arr[1]) ){
+            return "\033[0;41;1m module name is null;Enter module/behaviors\n";
+        }
+        if( empty($param[1]) ){
+            // 普通控制器
+            Build::buildBehaviors( $arr['0'],$arr[1] );
         }
     }
 }
