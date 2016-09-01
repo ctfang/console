@@ -20,7 +20,7 @@ return [
         'title'=>'还原数据库并且重新迁移',
         'parameter'=>'nothing',
         'details'=>[
-
+            '--seed'=>'并且填充数据',
         ],
     ],
 
