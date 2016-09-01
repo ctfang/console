@@ -16,6 +16,6 @@
             "Console\\": "src/",
             "Console\\Database\\": "../../../database/"
         },
-        "files": []
+      "files": ["src/function.php"]
     }
 }
