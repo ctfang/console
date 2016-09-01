@@ -19,7 +19,9 @@ return [
     'model'=>[
         'title'=>'创建模型',
         'parameter'=>'module\\model',
-        'details'=>[],
+        'details'=>[
+            '--resource'=>'创建资源类型控制器',
+        ],
     ],
 
     'view'=>[
@@ -37,6 +39,23 @@ return [
         'parameter'=>'nothing',
         'details'=>[
             'table'=>'表名称',
+        ],
+    ],
+
+
+    'behaviors'=>[
+        'title'=>'创建行为文件',
+        'parameter'=>'module\\behaviors',
+        'details'=>[
+            '--resource'=>'创建资源类型',
+        ],
+    ],
+
+    'input'=>[
+        'title'=>'创建参数池',
+        'parameter'=>'module\\input',
+        'details'=>[
+            '--resource'=>'创建资源类型',
         ],
     ],
 ];

@@ -17,30 +17,15 @@ php artisan route:list 就可以看到所有命令支持
 *  创建目录
 *  创建文件
 *  数据表迁移
+*  创建参数池
+*  创建行为类
 
 ## 自定义和目录
 
-# 入口文件放到根目录
+# 复制console\artisan文件到根目录
 
-!/usr/bin/php
-
-<?php
-
-// cli 模式运行
-
-require './vendor/autoload.php';
-
-// 配置读取有数据库信息的配置文件
-
-Console\config::set('config_path','./Application/Common/Conf/config.php');
-
-// 配置tp代码根目录
+# 命令行下，运行 php artisan 可以查看命令行帮助
 
 
-Console\config::set('app_path','./Application/');
 
-// 开始执行
 
-$statuc = Console\Start::run( $argv );
-
-echo $statuc;

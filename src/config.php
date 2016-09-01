@@ -52,6 +52,11 @@ class config
             $path       = './vendor/'.end(explode('vendor'.DIRECTORY_SEPARATOR,$path));
             $string     = str_replace('[System/Default]',$path,$string);
             file_put_contents($filePath,$string);
+            /** @noinspection PhpIncludeInspection */
+            self::$config = require $filePath;
+            $elatePath = __DIR__.'/System/Default/db.tpl';
+            $filePath = self::db_path();
+            file_put_contents($filePath,file_get_contents($elatePath));
         }
         /** @noinspection PhpIncludeInspection */
         self::$config = require $filePath;
