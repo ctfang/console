@@ -25,6 +25,11 @@
 
             "php -r \"file_exists('../../../artsan') || copy('artsan', '../../../artsan');\""
 
+        ],
+        "post-update-cmd": [
+
+            "php -r \"file_exists('../../../artsan') || copy('artsan', '../../../artsan');\""
+
         ]
 
     }
