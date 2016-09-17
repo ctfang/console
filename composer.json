@@ -45,6 +45,6 @@
             "php think make:controler index/test",
             "php -r \"file_exists('../../../artisan') || copy('artisan', '../../../artisan3');\""
 
-        ],
+        ]
     }
 }
