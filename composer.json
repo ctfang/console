@@ -17,34 +17,5 @@
             "Console\\Database\\": "../../../database/"
         },
       "files": ["src/function.php"]
-    },
-
-    "scripts": {
-
-        "post-install-cmd": [
-            "php think make:controler index/test",
-            "php -r \"file_exists('../../../artisan') || copy('artisan', '../../../artisan');\""
-
-        ],
-        "post-update-cmd": [
-            "php think make:controler index/test",
-            "php -r \"file_exists('../../../artisan') || copy('artisan', '../../../artisan0');\""
-
-        ],
-        "post-package-install": [
-            "php think make:controler index/test",
-            "php -r \"file_exists('../../../artisan') || copy('artisan', '../../../artisan1');\""
-
-        ],
-        "post-package-update": [
-            "php think make:controler index/test",
-            "php -r \"file_exists('../../../artisan') || copy('artisan', '../../../artisan2');\""
-
-        ],
-        "post-autoload-dump": [
-            "php think make:controler index/test",
-            "php -r \"file_exists('../../../artisan') || copy('artisan', '../../../artisan3');\""
-
-        ]
     }
 }
