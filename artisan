@@ -4,6 +4,15 @@
 require './vendor/autoload.php';
 // 读取配置文件
 Console\config::setAll( './application/console.php' );
+
+
+// ----------------begin 新增命令或覆盖默认命令----------------------
+// 覆盖命令
+// Console\System\Route::register('make:controller',function(){
+//     echo 'make:controller ----- ok';
+// });
+// -----------------end 新增命令或覆盖默认命令 ---------------------
+
 // 开始执行
 $back = Console\Start::run( $argv );
 

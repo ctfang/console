@@ -12,7 +12,9 @@ class Route
 
     // 绑定注册
     static public function register($route_name,$model) {
-        self::$binds[$route_name] = $model;
+        if( !isset(self::$binds[$route_name]) ) {
+            self::$binds[$route_name] = $model;
+        }
     }
 
     // 创建

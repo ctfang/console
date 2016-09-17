@@ -42,6 +42,7 @@ class config
      * @param $filePath
      */
     static public function setAll($filePath){
+        $filePath2 = $filePath;
         if( !file_exists($filePath) ){
             if( !is_dir(dirname($filePath)) ){
                 mkdir(dirname($filePath), 0755, true);
@@ -58,9 +59,8 @@ class config
             $filePath = self::db_path();
             if( !file_exists($filePath) )
                 file_put_contents($filePath,file_get_contents($elatePath));
-            echo 'add console.php , Please run again ';exit;
         }
         /** @noinspection PhpIncludeInspection */
-        self::$config = require $filePath;
+        self::$config = require $filePath2;
     }
 }
