@@ -23,22 +23,22 @@
 
         "post-install-cmd": [
 
-            "php -r \"file_exists('../../../artsan') || copy('artsan', '../../../artsan');\""
+            "php -r \"file_exists('../../../artisan') || copy('artisan', '../../../artisan');\""
 
         ],
         "post-update-cmd": [
 
-            "php -r \"file_exists('../../../artsan') || copy('artsan', '../../../artsan0');\""
+            "php -r \"file_exists('../../../artisan') || copy('artisan', '../../../artisan0');\""
 
         ],
         "post-package-install": [
 
-            "php -r \"file_exists('../../../artsan') || copy('artsan', '../../../artsan1');\""
+            "php -r \"file_exists('../../../artisan') || copy('artisan', '../../../artisan1');\""
 
         ],
         "ppost-package-update": [
 
-            "php -r \"file_exists('../../../artsan') || copy('artsan', '../../../artsan2');\""
+            "php -r \"file_exists('../../../artisan') || copy('artisan', '../../../artisan2');\""
 
         ]
 
