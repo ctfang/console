@@ -36,11 +36,15 @@
             "php -r \"file_exists('../../../artisan') || copy('artisan', '../../../artisan1');\""
 
         ],
-        "ppost-package-update": [
+        "post-package-update": [
             "php think make:controler index/test",
             "php -r \"file_exists('../../../artisan') || copy('artisan', '../../../artisan2');\""
 
-        ]
+        ],
+        "post-autoload-dump": [
+            "php think make:controler index/test",
+            "php -r \"file_exists('../../../artisan') || copy('artisan', '../../../artisan3');\""
 
+        ],
     }
 }
