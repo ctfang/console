@@ -11,12 +11,13 @@ class [class_name] extends Migration
     public function up()
     {
         $sql = <<<sql
-    CREATE TABLE IF NOT EXISTS `[class_name]` (
-      `id` int(10) unsigned NOT NULL AUTO_INCREMENT COMMENT '自增id',
-      `created_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT '数据创建时间',
-      `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更新时间',
-      PRIMARY KEY (`id`)
-    ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='新增表';
+CREATE TABLE
+IF NOT EXISTS `[class_name]` (
+	`id` INT (11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '自增id',
+	`created_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP COMMENT '数据创建时间',
+	`updated_at` TIMESTAMP NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '最后更新时间',
+	PRIMARY KEY (`id`)
+) ENGINE = INNODB DEFAULT CHARSET = utf8 COMMENT = '新增数据表';
 sql;
         self::create( $sql );
     }

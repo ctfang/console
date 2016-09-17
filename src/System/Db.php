@@ -11,7 +11,7 @@ use Console\config;
 class Db
 {
     static public $connect ;
-    
+
     static public function create( $sql ){
         $con    = self::getConnection();
         $status = $con->query( $sql );
@@ -35,18 +35,18 @@ class Db
             return self::$connect;
         }
         $config = config::db();
-        $config = array(
-            'dsn'=>"mysql:host={$config['DB_HOST']};port={$config['DB_PORT']};dbname={$config['DB_NAME']}",
-            'username'=>$config['DB_USER'],
-            'password'=>$config['DB_PWD']
+        $new_config = array(
+            'dsn'=>"{$config['type']}:host={$config['hostname']};port={$config['hostport']};dbname={$config['database']}",
+            'username'=>$config['username'],
+            'password'=>$config['password']
         );
         try{
-            self::$connect = new \PDO($config['dsn'], $config['username'], $config['password']);
+            self::$connect = new \PDO($new_config['dsn'], $new_config['username'], $new_config['password']);
         }catch (PDOException $e) {
             print "错误: ".$e->getMessage()."<br />"; print "行号: ".$e->getLine()."<br />"; die();
         }
 
-        self::$connect->query("SET NAMES utf8");
+        self::$connect->query("SET NAMES {$config['charset']}");
         return self::$connect;
     }
 }

@@ -4,11 +4,11 @@
  */
 return [
     /* 数据库配置文件路径 */
-    'db_path'   => './config/db.php',
+    'db_path'   => './application/database.php',
     /* tp Application目录路径 */
-    'app_path'=>'./Application/',
+    'app_path'=>'./application/',
     /* 缓存目录路径 */
-    'app_runtime_path'=>'./Runtime/',
+    'app_runtime_path'=>'./runtime/',
     /* 基础控制器模板路径 */
     'controller_path'=>'[System/Default]/controller.tpl',
     /* 资源控制器模板路径 */

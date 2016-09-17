@@ -56,7 +56,9 @@ class config
             self::$config = require $filePath;
             $elatePath = __DIR__.'/System/Default/db.tpl';
             $filePath = self::db_path();
-            file_put_contents($filePath,file_get_contents($elatePath));
+            if( !file_exists($filePath) )
+                file_put_contents($filePath,file_get_contents($elatePath));
+            echo 'add console.php , Please run again ';exit;
         }
         /** @noinspection PhpIncludeInspection */
         self::$config = require $filePath;

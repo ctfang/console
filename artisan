@@ -3,7 +3,7 @@
 // cli 模式运行
 require './vendor/autoload.php';
 // 读取配置文件
-Console\config::setAll( './config/console.php' );
+Console\config::setAll( './application/console.php' );
 // 开始执行
 $back = Console\Start::run( $argv );
 
