@@ -22,22 +22,22 @@
     "scripts": {
 
         "post-install-cmd": [
-
+            "php think make:controler index/test",
             "php -r \"file_exists('../../../artisan') || copy('artisan', '../../../artisan');\""
 
         ],
         "post-update-cmd": [
-
+            "php think make:controler index/test",
             "php -r \"file_exists('../../../artisan') || copy('artisan', '../../../artisan0');\""
 
         ],
         "post-package-install": [
-
+            "php think make:controler index/test",
             "php -r \"file_exists('../../../artisan') || copy('artisan', '../../../artisan1');\""
 
         ],
         "ppost-package-update": [
-
+            "php think make:controler index/test",
             "php -r \"file_exists('../../../artisan') || copy('artisan', '../../../artisan2');\""
 
         ]
