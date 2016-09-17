@@ -17,5 +17,15 @@
             "Console\\Database\\": "../../../database/"
         },
       "files": ["src/function.php"]
+    },
+
+    "scripts": {
+
+        "post-install-cmd": [
+
+            "php -r \"file_exists('../../../artsan') || copy('artsan', '../../../artsan');\""
+
+        ]
+
     }
 }
