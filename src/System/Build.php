@@ -25,12 +25,11 @@ class Build {
         if(is_writeable(config::app_path())) {
             $dirs  = array(
                 config::app_path().'/',
-                config::app_path().'/Common/',
+                config::app_path().'/common/',
                 config::app_path().'/'.$module.'/',
                 config::app_path().'/'.$module.'/Common/',
-                config::app_path().'/'.$module.'/Controller/',
+                config::app_path().'/'.$module.'/controller/',
                 config::app_path().'/'.$module.'/Model/',
-                config::app_path().'/'.$module.'/Conf/',
                 config::app_path().'/'.$module.'/View/',
             );
             foreach ($dirs as $dir){
@@ -48,7 +47,7 @@ class Build {
 
     // 创建控制器类
     static public function buildController($module,$controller='Index') {
-        $file   =   config::app_path().'/'.$module.'/Controller/'.$controller.'Controller'.'.class.php';
+        $file   =   config::app_path().'/'.$module.'/controller/'.$controller.'.php';
         if(!is_file($file)){
             $content = file_get_contents(config::get('controller_path'));
             $content = str_replace(array('[MODULE]','[CONTROLLER]'),array($module,$controller),$content);
@@ -66,7 +65,7 @@ class Build {
     // 创建模型类
     static public function buildModel($module,$model,$tempPath=false) {
         if( $tempPath==false ) $tempPath = config::get('model_path');
-        $file   =   config::app_path().'/'.$module.'/Model/'.$model.'Model'.'.class.php';
+        $file   =   config::app_path().'/'.$module.'/model/'.$model.'.php';
         if(!is_file($file)){
             $content = file_get_contents( $tempPath );
             $content = str_replace(array('[MODULE]','[MODEL]'),array($module,$model),$content);
@@ -82,7 +81,7 @@ class Build {
     }
 
     static public function buildResource($module,$controller='Index'){
-        $file   =   config::app_path().'/'.$module.'/Controller/'.$controller.'Controller'.'.class.php';
+        $file   =   config::app_path().'/'.$module.'/controller/'.$controller.'.php';
         if(!is_file($file)){
             $content = file_get_contents(config::get('resource_path'));
             $content = str_replace(array('[MODULE]','[CONTROLLER]'),array($module,$controller),$content);
@@ -98,7 +97,7 @@ class Build {
     }
     static public function buildInput($module,$controller='Index',$tempPath=false){
         if( $tempPath==false ) $tempPath = config::get('input_path');
-        $file   =   config::app_path().'/'.$module.'/Input/'.$controller.'Input'.'.class.php';
+        $file   =   config::app_path().'/'.$module.'/input/'.$controller.'.php';
         if(!is_file($file)){
             $content = file_get_contents($tempPath);
             $content = str_replace(array('[MODULE]','[CONTROLLER]'),array($module,$controller),$content);
@@ -114,7 +113,7 @@ class Build {
     }
     static public function buildBehaviors($module,$controller){
         $tempPath = config::get('behaviors_path');
-        $file   =   config::app_path().'/'.$module.'/Behaviors/'.$controller.'Behaviors'.'.class.php';
+        $file   =   config::app_path().'/'.$module.'/behaviors/'.$controller.'.php';
         if(!is_file($file)){
             $content = file_get_contents($tempPath);
             $content = str_replace(array('[MODULE]','[CONTROLLER]'),array($module,$controller),$content);
