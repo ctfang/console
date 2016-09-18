@@ -1,9 +1,12 @@
 ﻿## 简介
 
-为TP添加命令行支持
+为TP添加命令行支持，master为开发分支
+
+2.* 分支支持tp3.2
+
+tp5.* 分支支持tp5
 
 ## 仿Laravel artisan 命令
-
 在项目根目录运行cmd
 php artisan route:list 就可以看到所有命令支持
 
@@ -46,7 +49,8 @@ require 和 scripts 标签
     composer update
 
 根目录下会生成 artisan 文件 充当入口文件，没有可以手动创建
-#!/usr/bin/php
+
+    #!/usr/bin/php
     <?php
     // cli 模式运行
     require './vendor/autoload.php';
