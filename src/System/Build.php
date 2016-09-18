@@ -25,18 +25,16 @@ class Build {
         if(is_writeable(config::app_path())) {
             $dirs  = array(
                 config::app_path().'/',
-                config::app_path().'/common/',
                 config::app_path().'/'.$module.'/',
-                config::app_path().'/'.$module.'/Common/',
                 config::app_path().'/'.$module.'/controller/',
-                config::app_path().'/'.$module.'/Model/',
-                config::app_path().'/'.$module.'/View/',
+                config::app_path().'/'.$module.'/model/',
+                config::app_path().'/'.$module.'/view/',
             );
             foreach ($dirs as $dir){
                 if(!is_dir($dir)){
                     mkdir($dir,0755,true);
-                    $filename= 'index.html';
-                    file_put_contents($dir.$filename,'');
+                    // $filename= 'index.html';
+                    // file_put_contents($dir.$filename,'');
                 }
             }
         }else{

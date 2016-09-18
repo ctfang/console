@@ -1,11 +1,13 @@
 <?php
-namespace [MODULE]\Behaviors;
-use Think\Behavior;
-class [CONTROLLER]Behavior extends Behavior{
-    /**
-     * @param mixed $param
-     */
-    public function run(&$param){
+namespace app\[MODULE]\behavior;
 
+class [CONTROLLER]
+{
+    /**
+     * @param mixed $params
+     */
+    public function run(&$params)
+    {
+        // 行为逻辑
     }
 }

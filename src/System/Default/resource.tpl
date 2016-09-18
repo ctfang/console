@@ -1,77 +1,84 @@
 <?php
-namespace [MODULE]\Controller;
-use Think\Controller;
-class [CONTROLLER]Controller extends Controller {
+namespace app\[MODULE]\controller;
+
+use think\Controller;
+use think\Request;
+
+class [CONTROLLER] extends Controller
+{
     /**
-     * 索引/列表
+     * 显示资源列表
+     *
+     * @return \think\Response
      */
-    public function index(){
-        $data   = D('[CONTROLLER]')->lists();
-        $this->assign('data',$data);
-        $this->display();
+    public function index()
+    {
+        //
     }
 
     /**
-     * 创建（显示表单）
+     * 显示创建资源表单页.
+     *
+     * @return \think\Response
      */
-    public function create(){
-        $this->display();
+    public function create()
+    {
+        //
     }
 
     /**
-     * 保存你创建的数据
+     * 保存新建的资源
+     *
+     * @param  \think\Request  $request
+     * @return \think\Response
      */
-    public function store(){
-        $error  = '';
-        $data   = D('[CONTROLLER]')->store(input(),$error);
-        if( $data===false ){
-            $this->error( '创建失败:'.$error );
-        }
-        $this->success( '创建成功' );
+    public function save(Request $request)
+    {
+        //
     }
 
     /**
-     * 显示对应id的内容
+     * 显示指定的资源
+     *
+     * @param  int  $id
+     * @return \think\Response
      */
-    public function show(){
-        $id     = I('id',0,'int');
-        $data   = D('[CONTROLLER]')->details($id);
-        $this->assign('data',$data);
-        $this->display();
+    public function read($id)
+    {
+        //
     }
 
     /**
-     * 编辑（显示表单）
+     * 显示编辑资源表单页.
+     *
+     * @param  int  $id
+     * @return \think\Response
      */
-    public function edit(){
-        $id     = I('id',0,'int');
-        $data   = D('[CONTROLLER]')->details($id);
-        $this->assign('data',$data);
-        $this->display();
+    public function edit($id)
+    {
+        //
     }
 
     /**
-     * 保存你编辑的数据
+     * 保存更新的资源
+     *
+     * @param  \think\Request  $request
+     * @param  int  $id
+     * @return \think\Response
      */
-    public function update(){
-        $error  = '';
-        $data   = D('[CONTROLLER]')->update(input(),$error);
-        if( $data===false ){
-            $this->error( '更新失败:'.$error );
-        }
-        $this->success( '更新成功' );
+    public function update(Request $request, $id)
+    {
+        //
     }
 
     /**
-     * 删除
+     * 删除指定资源
+     *
+     * @param  int  $id
+     * @return \think\Response
      */
-    public function destroy(){
-        $id     = I('id',0,'int');
-        $error  = '';
-        $data   = D('[CONTROLLER]')->details($id,$error);
-        if( $data===false ){
-            $this->error( '删除失败'.$error );
-        }
-        $this->success( '删除成功' );
+    public function delete($id)
+    {
+        //
     }
 }

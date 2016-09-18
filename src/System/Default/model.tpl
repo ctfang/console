@@ -1,6 +1,9 @@
 <?php
-namespace [MODULE]\Model;
-use Think\Model;
-class [MODEL]Model extends Model {
+namespace app\[MODULE]\model;
+
+use think\Model;
+
+class [MODEL] extends Model
+{
 
 }

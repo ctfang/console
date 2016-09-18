@@ -1,67 +1,30 @@
 <?php
-namespace [MODULE]\Model;
-use Think\Model;
-class [MODEL]Model extends Model {
-    /**
-     * 索引/列表
-     */
-    public function lists(){
-        return $this->select();
-    }
+namespace app\[MODULE]\model;
 
-    /**
-    * 保存你创建的数据
-    * @param $data
-    * @param $error
-    * @return bool
-    */
-    public function store($data,&$error){
-        $id = $this->add( $data );
-        if( !$id ){
-            $error = '创建失败';
-            return false;
-        }
-        return $id;
-    }
+use think\Model;
 
+class [MODEL] extends Model
+{
+    // 设置当前模型对应的完整数据表名称
+    protected $table = [MODEL];
 
-    /**
-    * 显示详情
-    * @param $id
-    * @param $error
-    * @return bool|mixed
-    */
-    public function details($id,&$error){
-        $data = $this->where(['id'=>$id])->find();
-        if( !$data ){
-            $error = '没有对应的数据';
-            return false;
-        }
-        return $data;
-    }
-
-    /**
-    * 保存你编辑的数据
-    * @param $data
-    * @param $error
-    * @return bool
-    */
-    public function update($data,&$error){
-        $status = $this->where(['id'=>$data['id']])->save( $data );
-        if( $status===false ){
-            $error = '修改失败';
-            return false;
-        }
-        return $status;
-    }
-
-    /**
-    * 删除
-    * @param $id
-    * @param $error
-    * @return bool|mixed
-    */
-    public function destroy($id,&$error){
-        return $this->where(['id'=>$id])->delete();
-    }
+    // 设置当前模型的数据库连接
+    protected $connection = [
+        // 数据库类型
+        'type'        => 'mysql',
+        // 服务器地址
+        'hostname'    => '127.0.0.1',
+        // 数据库名
+        'database'    => 'thinkphp',
+        // 数据库用户名
+        'username'    => 'root',
+        // 数据库密码
+        'password'    => '',
+        // 数据库编码默认采用utf8
+        'charset'     => 'utf8',
+        // 数据库表前缀
+        'prefix'      => 'think_',
+        // 数据库调试模式
+        'debug'       => false,
+    ];
 }
