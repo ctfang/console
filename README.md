@@ -82,6 +82,13 @@ require 和 scripts 标签
 
     php artisan make:controller index/test --resource
     
+创建数据表
+
+    php artisan make:migration users
+    // 创建数据表记录文件，在根目录下database/migrations/
+    php artisan magrate
+    // 开始写入数据库
+
 其他
     
    
