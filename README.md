@@ -33,7 +33,7 @@ require 和 scripts 标签
         "require": {
             "php": ">=5.4.0",
             "topthink/framework": "^5.0",
-            "selden1992/console":"tp5.0.x-dev"
+            "selden1992/console":"dev-tp5.0"
         },
         "scripts": {
 
