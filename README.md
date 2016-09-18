@@ -1,16 +1,13 @@
 ﻿## 简介
 
-为TP添加命令行支持，master为开发分支
+为TP添加命令行支持，数据迁移文件的模板是以mysql5.7为例，低版本自行修改模板路径，console.php配置文件
+master为开发分支
 
 2.* 分支支持tp3.2
 
 tp5.* 分支支持tp5
 
-## 仿Laravel artisan 命令
-在项目根目录运行cmd
-php artisan route:list 就可以看到所有命令支持
-
-这些命令支持包括：
+## 这些命令支持包括( src/route.php注册了所有命令,自行查看 )
 
 *  允许新增自定义命令
 *  允许覆盖默认命令
