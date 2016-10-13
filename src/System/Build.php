@@ -69,7 +69,7 @@ class Build {
         $file   =   config::app_path().'/'.$module.'/'.$layer.'/'.$model.'.php';
         if(!is_file($file)){
             $content = file_get_contents( $tempPath );
-            $content = str_replace(array('[MODULE]','[MODEL]'),array($module,$model),$content);
+            $content = str_replace(array('[MODULE]','[LAYER]','[MODEL]'),array($module,$layer,$model),$content);
             if( false ){
                 $content    =   preg_replace('/namespace\s(.*?);/','',$content,1);
             }
