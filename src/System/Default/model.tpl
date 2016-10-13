@@ -1,5 +1,5 @@
 <?php
-namespace app\[MODULE]\model;
+namespace app\[MODULE]\[LAYER];
 
 use think\Model;
 
