@@ -65,7 +65,7 @@ class Build {
         if( $tempPath==false ) $tempPath = config::get('model_path');
         $arr    =   explode('/',$model);
         $layer  =   count($arr)==1 ? 'model':$arr[0];
-        $model  =   end($layer);
+        $model  =   end($arr);
         $file   =   config::app_path().'/'.$module.'/'.$layer.'/'.$model.'.php';
         if(!is_file($file)){
             $content = file_get_contents( $tempPath );
