@@ -38,6 +38,10 @@ class Make
         if( empty($arr[0]) || empty($arr[1]) ){
             return "\033[0;41;1m module name is null;Enter module/controller\n";
         }
+        if( count($arr)==3 ){
+            // 支持多层模型
+            $arr[1] = $arr[1].'/'.$arr[2];
+        }
         if( empty($param[1]) ){
             // 普通
             Build::buildModel( $arr['0'],$arr[1] );

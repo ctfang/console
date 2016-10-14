@@ -63,10 +63,13 @@ class Build {
     // 创建模型类
     static public function buildModel($module,$model,$tempPath=false) {
         if( $tempPath==false ) $tempPath = config::get('model_path');
-        $file   =   config::app_path().'/'.$module.'/model/'.$model.'.php';
+        $arr    =   explode('/',$model);
+        $layer  =   count($arr)==1 ? 'model':$arr[0];
+        $model  =   end($arr);
+        $file   =   config::app_path().'/'.$module.'/'.$layer.'/'.$model.'.php';
         if(!is_file($file)){
             $content = file_get_contents( $tempPath );
-            $content = str_replace(array('[MODULE]','[MODEL]'),array($module,$model),$content);
+            $content = str_replace(array('[MODULE]','[LAYER]','[MODEL]'),array($module,$layer,$model),$content);
             if( false ){
                 $content    =   preg_replace('/namespace\s(.*?);/','',$content,1);
             }
